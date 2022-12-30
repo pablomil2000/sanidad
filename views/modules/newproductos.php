@@ -8,8 +8,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $datos['nombre'] = Validar::vlt_String($_POST['name']);
     $datos['numLote'] = Validar::vlt_String($_POST['lote']);
+    $datos['compra'] = $_POST['compra'];
     $datos['caducidad'] = $_POST['cadu'];
     $datos['id_proveedor'] = Validar::vlt_Int($_POST['provider']);
+    $datos['cantidad'] = Validar::vlt_Int($_POST['cantidad']);
 
     if ($datos['nombre'] != '') {
         $productosctrl = new productosctrl('productos');

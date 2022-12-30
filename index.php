@@ -12,10 +12,13 @@ require_once('controllers/validar.controller.php');     //*Core
 
 require_once('controllers/proveedor.controller.php');
 require_once('controllers/productos.controller.php');
-
+require_once('controllers/elaboracion.controller.php');
+require_once('controllers/utilizado.controller.php');
 
 //? Modelos
 require_once('models/crud.model.php');  //*Core
+require_once('models/conexion.model.php');  //*Core
+
 
 
 

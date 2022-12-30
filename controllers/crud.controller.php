@@ -1,8 +1,4 @@
 <?php
-
-require_once('models/crud.model.php');
-require_once('models/conexion.model.php');
-
 class CrudCtrl
 {
     protected $tabla;
@@ -42,8 +38,9 @@ class CrudCtrl
         return CrudMdl::update($this->tabla, $datos, $id);
     }
 
-    function delete($datos)
+    function delete($datos, $campo = "id")
+
     {
-        return CrudMdl::delete($this->tabla, $datos);
+        return CrudMdl::delete($this->tabla, $datos, $campo);
     }
 }

@@ -37,7 +37,9 @@ class CrudMdl
 
     static public function getByField($tabla, $datos, $campo)
     {
+        // var_dump($datos);
         $sql = "SELECT * FROM $tabla WHERE $campo in $datos";
+        // var_dump($sql);
         $c = Conexion::conectar();
 
         // var_dump($sql);
@@ -93,10 +95,10 @@ class CrudMdl
         return $c->exec($sql);
     }
 
-    static public function delete($tabla, $datos)
+    static public function delete($tabla, $datos, $campo)
     {
         $c = Conexion::conectar();
-        $sql = "DELETE FROM $tabla WHERE id in ($datos)";     //? PDO no me deja pasarlo los parametros entre parentesis?
+        $sql = "DELETE FROM $tabla WHERE $campo in ($datos)";     //? PDO no me deja pasarlo los parametros entre parentesis?
         // var_dump($datos);
         $stmt = $c->prepare($sql);
         // var_dump($sql);

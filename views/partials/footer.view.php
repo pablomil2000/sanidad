@@ -30,13 +30,15 @@
 
 <script>
     $(document).ready(function() {
-        $('#table_id').DataTable();
-    });
+        $('#table_id').DataTable({
+            language: {}
+        });
+        $('.select2').select2();
 
-    $(document).ready(function() {
-        $('.js-example-basic-single').select2();
     });
 </script>
-</body>
+
+<script src="views/dist/ajax/informeProveedor.js"></script>
+</body>!
 
 </html>

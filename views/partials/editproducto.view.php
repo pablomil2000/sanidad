@@ -59,7 +59,7 @@
 
                                 <?php
                                 foreach ($Proveedorctrl->getAll() as $key => $value) {
-                                    echo "<option value=" . $value['id'];
+                                    echo "<option value='" . $value['id'] . "'";
 
                                     if ($value['id'] == $producto['id_proveedor']) {
                                         echo "Selected";

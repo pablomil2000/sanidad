@@ -37,47 +37,54 @@
                 <table id="table_id" class="display">
                     <thead>
                         <tr>
-                            <th>fecha compra</th>
-                            <th>Producto</th>
-                            <th>Cantidad</th>
-                            <th>Numero de lote</th>
-                            <th>fecha caducidad</th>
-                            <th>Comprado a</th>
+                            <th>Nombre</th>
+                            <th>cantidad</th>
+                            <th>elaboracion</th>
+                            <th>caducidad</th>
+                            <th>Utilizado</th>
                             <th>Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
-
                         <?php
-                        foreach ($productos as $key => $reg) {
-                            $proveedor = $proveedoresCtrl->getByid(array('id' => $reg['id_proveedor']));
+                        foreach ($elaboraciones as $key => $reg) {
+                            $datos = array();
+                            $productos = array();
+
+                            $utilizado = $utilizadoCtrl->getByid(array('id_elaboracion' => $reg['id']));
+                            foreach ($utilizado as $key => $value) {
+                                $datos[] = $value['id_producto'];
+                            }
+
+                            if (!empty($datos)) {
+                                $productos = $ProductosCtrl->getByField('(' . implode(',', $datos) . ')');
+                            }
+
                         ?>
-                            <tr style="<?= $reg['caducidad'] <= date('Y-m-d') ? 'background-color:#fc5f53; color:white' : '' ?>;">
-                                <td><?= Funciones::dateFormat($reg['compra']) ?></td>
+                            <tr>
                                 <td><?= $reg['nombre'] ?></td>
-                                <th><?= $reg['cantidad'] ?></th>
-                                <td><?= $reg['numLote'] ?></td>
+                                <td><?= $reg['cantidad'] ?></td>
+                                <td><?= Funciones::dateFormat($reg['elaboracion']) ?></td>
                                 <td><?= Funciones::dateFormat($reg['caducidad']) ?></td>
-                                <td><?= $proveedor[0]['nombre'] ?></td>
                                 <td>
-                                    <a href="editproducto&id=<?= $reg['id'] ?>" class="btn btn-info btn-sm"><i class="fas fa-pen"></i></a>
-
-                                    <?php
-                                    if ($reg['visible'] == 0) {
-                                    ?>
-                                        <a href="cambiarvisible&id=<?= $reg['id'] ?>" class="btn btn-success btn-sm"><i class="fas fa-eye"></i></a>
-
-                                    <?php
-                                    } else {
-                                    ?>
-                                        <a href="cambiarvisible&id=<?= $reg['id'] ?>" class="btn btn-success btn-sm"><i class="fas fa-eye-slash"></i></a>
-
-                                    <?php
-                                    }
-
-                                    ?>
-
-                                    <a href="" class="btn btn-danger btn-sm"><i class=""></i></a>
+                                    <form action="" method="post">
+                                        <select class="select2" style="width: 200px;" onchange="submit()">
+                                            <option value="0" selected disabled>Lista de ingredientes ingredientes...</option>
+                                            <?php
+                                            if (!empty($productos)) {
+                                                foreach ($productos as $key => $value) {
+                                            ?>
+                                                    <option><?= $value['nombre'] ?></option>
+                                            <?php
+                                                }
+                                            }
+                                            ?>
+                                        </select>
+                                    </form>
+                                </td>
+                                <td>
+                                    <a href="editelaboracion&id=<?= $reg['id'] ?>" class="btn btn-info btn-sm"><i class="fas fa-pen"></i></a>
+                                    <!-- <a href="" class="btn btn-danger btn-sm"><i class=""></i></a> -->
                                 </td>
                             </tr>
                         <?php

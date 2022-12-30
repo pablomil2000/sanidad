@@ -10,7 +10,7 @@
 include('views/modules/menu.php');
 
 //<!-- Content start -->
-PlantillaCtr::whiteList(array('newprovider', 'proveedores', 'editprovider', 'newproductos', 'productos', 'editproducto', 'informesProveedor', 'cambiarvisible'));
+PlantillaCtr::whiteList(array('newprovider', 'proveedores', 'editprovider', 'newproductos', 'productos', 'editproducto', 'informesProveedor', 'cambiarvisible', 'elaboracion', 'elaboraciones', 'editelaboracion'));
 ?>
 <!-- Content end -->
 

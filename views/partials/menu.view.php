@@ -8,18 +8,18 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="../../index3.html" class="nav-link">Inicio</a>
+                    <a href="home" class="nav-link">Inicio</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
+                    <a href="productos" class="nav-link">productos</a>
                 </li>
             </ul>
 
             <!-- Search form -->
 
-            <form class="form-inline">
+            <form class="form-inline" action="productos" method="POST">
                 <div class="input-group input-group-sm">
-                    <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search" name="producto" value="<?= isset($_POST['producto']) and !is_array($_POST['producto']) ? $_POST['producto'] : '' ?>">
                     <div class="input-group-append">
                         <button class="btn btn-navbar" type="submit">
                             <i class="fas fa-search"></i>
@@ -123,10 +123,28 @@
                                     </a>
                                 </li>
 
+                            </ul>
+                        </li>
+
+                        <li class="nav-item has-treeview">
+                            <a href="pedidos" class="nav-link">
+                                <i class="nav-icon fas fa-box"></i>
+                                <p>
+                                    elaboraciones <i class="right fas fa-angle left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="informes" class="nav-link">
-                                        <i class="fas fa-book-open nav-icon"></i>
-                                        <p>Informe</p>
+                                    <a href="elaboracion" class="nav-link">
+                                        <i class="fas fa-shopping-basket nav-icon"></i>
+                                        <p>Nueva elaboraciones</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="elaboraciones" class="nav-link">
+                                        <i class="fas fa-store basket nav-icon"></i>
+                                        <p>elaboraciones</p>
                                     </a>
                                 </li>
                             </ul>

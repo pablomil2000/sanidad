@@ -38,11 +38,11 @@
                     <thead>
                         <tr>
                             <th>fecha compra</th>
-                            <th>Producto</th>
+                            <th>Nombre</th>
                             <th>Cantidad</th>
                             <th>Numero de lote</th>
                             <th>fecha caducidad</th>
-                            <th>Comprado a</th>
+                            <th>Comprado en</th>
                             <th>Opciones</th>
                         </tr>
                     </thead>
@@ -53,12 +53,12 @@
                             $proveedor = $proveedoresCtrl->getByid(array('id' => $reg['id_proveedor']));
                         ?>
                             <tr style="<?= $reg['caducidad'] <= date('Y-m-d') ? 'background-color:#fc5f53; color:white' : '' ?>;">
-                                <td><?= Funciones::dateFormat($reg['compra']) ?></td>
                                 <td><?= $reg['nombre'] ?></td>
-                                <th><?= $reg['cantidad'] ?></th>
-                                <td><?= $reg['numLote'] ?></td>
-                                <td><?= Funciones::dateFormat($reg['caducidad']) ?></td>
                                 <td><?= $proveedor[0]['nombre'] ?></td>
+                                <td><?= $reg['numLote'] ?></td>
+                                <th>Cantidad</th>
+                                <td><?= Funciones::dateFormat($reg['compra']) ?></td>
+                                <td><?= Funciones::dateFormat($reg['caducidad']) ?></td>
                                 <td>
                                     <a href="editproducto&id=<?= $reg['id'] ?>" class="btn btn-info btn-sm"><i class="fas fa-pen"></i></a>
 

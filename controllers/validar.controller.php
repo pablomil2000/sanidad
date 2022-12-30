@@ -5,7 +5,7 @@ class Validar
     static public function vlt_String($str)
     {
         if ($str != '') {
-            $str = trim(htmlspecialchars(filter_var($str, FILTER_SANITIZE_STRING)));
+            $str = trim(htmlspecialchars($str));
             return $str;
         }
         return false;
