@@ -77,7 +77,7 @@
 
                                     ?>
 
-                                    <a href="" class="btn btn-danger btn-sm"><i class=""></i></a>
+                                    <a href="detalleProducto&id=<?= $reg['id'] ?>" class="btn btn-warning btn-sm"><i class="fas fa-receipt"></i></a>
                                 </td>
                             </tr>
                         <?php

@@ -46,7 +46,7 @@ $(document).on("change", "#proveedor", function () {
                     informe = document.getElementById('listado');
                     informe.style.display = 'block';
 
-                    tabla = "<tr><td>Producto</td><td>cantidad</td><td>Numero de lote</td><td>Fecha de compra</td><td>Fecha de caducidad</td></tr>"
+                    tabla = "<thead><tr><td>Producto</td><td>cantidad</td><td>Numero de lote</td><td>Fecha de compra</td><td>Fecha de caducidad</td></tr></thead><tbody>";
 
                     for (const key in respuesta2) {
                         tabla = tabla + "<tr>";
@@ -60,10 +60,11 @@ $(document).on("change", "#proveedor", function () {
                         tabla = tabla + "</tr>";
                     }
 
+                    tabla = tabla + "</tbody>";
+
                     // console.log(tabla);
 
                     document.getElementById('lista').innerHTML = tabla;
-
                 }
             });
 

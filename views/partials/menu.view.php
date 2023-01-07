@@ -19,7 +19,11 @@
 
             <form class="form-inline" action="productos" method="POST">
                 <div class="input-group input-group-sm">
-                    <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search" name="producto" value="<?= isset($_POST['producto']) and !is_array($_POST['producto']) ? $_POST['producto'] : '' ?>">
+                    <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search" name="producto" <?php
+                                                                                                                                            if (isset($_POST['producto']) and !is_array($_POST['producto'])) {
+                                                                                                                                                echo " value='" . $_POST['producto'] . "'";
+                                                                                                                                            }
+                                                                                                                                            ?>>
                     <div class="input-group-append">
                         <button class="btn btn-navbar" type="submit">
                             <i class="fas fa-search"></i>

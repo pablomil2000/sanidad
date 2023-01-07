@@ -62,14 +62,16 @@
                     <div class="row d-flex align-items-center">
                         <div class="form-group col-12">
                             <label for="">Producto</label>
-                            <select class="select2" name="producto[]" style="width: 350px;" multiple="multiple">
-                                <?php
-                                foreach ($productoCtrl->getById(array('visible' => 1)) as $key => $value) {
-                                    $proveedor = $proveedorCtrl->getByid(array('id' => $value['id_proveedor']));
-                                    echo '<option value="' . $value['id'] . '">' . $value['nombre'] . ' -- ' . $proveedor[0]['nombre'] . ' -- ' . $value['numLote'] . '</option>';
-                                }
-                                ?>
-                            </select>
+                            <form action="" method="get">
+                                <select class="select2" name="producto[]" style="width: 350px;" multiple="multiple">
+                                    <?php
+                                    foreach ($productoCtrl->getById(array('visible' => 1)) as $key => $value) {
+                                        $proveedor = $proveedorCtrl->getByid(array('id' => $value['id_proveedor']));
+                                        echo '<option value="' . $value['id'] . '">' . $value['nombre'] . ' -- ' . $proveedor[0]['nombre'] . ' -- ' . $value['numLote'] . '</option>';
+                                    }
+                                    ?>
+                                </select>
+                            </form>
                         </div>
 
                         <button type="submit" class="btn btn-primary h-25">Enviar</button>

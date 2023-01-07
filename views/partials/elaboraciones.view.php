@@ -67,14 +67,15 @@
                                 <td><?= Funciones::dateFormat($reg['elaboracion']) ?></td>
                                 <td><?= Funciones::dateFormat($reg['caducidad']) ?></td>
                                 <td>
-                                    <form action="" method="post">
-                                        <select class="select2" style="width: 200px;" onchange="submit()">
+                                    <form action="detalleProducto" method="POST">
+                                        <!-- <input type="hidden" name="ruta" value="proddetalleProducto"> -->
+                                        <select class="select2" style="width: 200px;" onchange="submit()" name="id">
                                             <option value="0" selected disabled>Lista de ingredientes ingredientes...</option>
                                             <?php
                                             if (!empty($productos)) {
                                                 foreach ($productos as $key => $value) {
                                             ?>
-                                                    <option><?= $value['nombre'] ?></option>
+                                                    <option value="<?= $value['id'] ?>"><?= $value['nombre'] ?></option>
                                             <?php
                                                 }
                                             }

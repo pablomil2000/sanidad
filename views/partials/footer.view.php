@@ -33,6 +33,8 @@
         $('#table_id').DataTable({
             language: {}
         });
+
+
         $('.select2').select2();
 
     });
